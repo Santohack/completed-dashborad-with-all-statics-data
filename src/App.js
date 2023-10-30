@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { colorModeContext, useMode } from "./theme";
 
 import Dashboard from "./scenes/dashboard";
-import SideBar from "./scenes/global/sidebar";
+import NavSideBar from "./scenes/global/sidebar";
 import TopBar from './scenes/global/topbar/index';
 
 function App() {
@@ -12,15 +12,15 @@ function App() {
     <colorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
       <CssBaseline />
-        <>
-        <SideBar />
+        <div style={{display:'flex',position: 'relative'}}>
+        <NavSideBar />
           <main className="content">
             <TopBar />
             <Routes>
               <Route path="/" element ={<Dashboard />} />
             </Routes>
           </main>
-        </>
+        </div>
       </ThemeProvider>
     </colorModeContext.Provider>
 
